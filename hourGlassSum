@@ -1,0 +1,47 @@
+public class HourGlassSum {
+
+	public static void main(String[] args) {
+
+		
+		Scanner in = new Scanner(System.in);
+		int i, j;
+		
+		System.out.println("Enter no. of rs:-");
+		i = in.nextInt();
+		
+		System.out.println("Enter no. of c:-");
+		j = in.nextInt();
+		
+		int [][]matrix = new int[i][j];
+		
+		System.out.println("Enter no. of elements :- ");
+		for(int r = 0; r<i ;r++) {
+			for(int c = 0; c<i ;c++) {
+				matrix[r][c] = in.nextInt();
+			}
+			System.out.println("");
+		}
+		
+		for(int r = 0; r<i ;r++) {
+			for(int c = 0; c<i ;c++) {
+				System.out.print(matrix[r][c] + " ");
+			}
+			System.out.println("");
+		}
+		
+		int maxSum = 0;
+		for(int r = 0; r<i-2 ;r++) {
+			for(int c = 0; c<i-2 ;c++) {
+				int sum = matrix[r][c] + matrix[r][c+1] + matrix[r][c+2] + matrix[r+1][c+1] + matrix[r+2][c] + matrix[r+2][c+1] + matrix[r+2][c+2];
+				System.out.print(sum + " , ");
+				
+				if(maxSum<sum) {
+					maxSum = sum;
+				}
+			}
+		}
+		System.out.println("");
+		System.out.println("The max is " + maxSum);
+	}
+
+}
