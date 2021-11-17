@@ -1,0 +1,30 @@
+public class StringRotation {
+
+	public static void main(String[] args) {
+
+		String s = "hello";
+		
+		String str1 = "ABCD";
+		String str2 = "CDAB";
+		String temp = str1.concat(str1);
+		
+		System.out.println("Temp is " + temp);
+		
+		String check;
+		
+		boolean isTrue = true;
+		
+		for(int i= 0; i<temp.length() ; i++) {
+			for(int j= i+1; j<temp.length() ; j++) {
+				check = temp.substring(i,j);
+				if(check.equals(str2)) {
+					isTrue = false;
+					System.out.println("Succes..!!");
+					break;
+				}
+			}
+		}
+		if(isTrue) {
+			System.out.println("Failed..!!");
+		}
+	}
