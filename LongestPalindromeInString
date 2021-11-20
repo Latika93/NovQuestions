@@ -1,0 +1,61 @@
+package longQuestion;
+
+import java.util.ArrayList;
+
+public class LongestPalindrome {
+
+	public static void main(String[] args) {
+
+		ArrayList<String> finalStringList = new ArrayList<>();
+	
+		String givenString = "HUUMANANANAMMI";
+		
+		String substrings;
+		
+		for(int i = 0; i<givenString.length() ; i++) {
+			for(int j = i+1 ; j<givenString.length() ; j++) {
+				substrings = givenString.substring(i,j);
+				if(isPalindrome(substrings)) {
+					finalStringList.add(substrings);
+				}
+				
+			}
+		}
+		
+//		----------LongestString--- begins here----------------	
+		int maxLength = 1;
+		String longestSubsring = "";
+		for(String e: finalStringList) {
+			if(maxLength < e.length()) {
+				longestSubsring = e;
+				maxLength = e.length();
+			}
+		}
+		
+		System.out.println("Longest String must be : " + longestSubsring);
+//	----------LongestString------end-------------	
+}
+	
+static boolean isPalindrome(String str) {
+		String reversedString = ReverseString(str);
+		
+		if(reversedString.equals(str)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+static String ReverseString(String str) {
+		char ch;
+		String rstr = "";
+		int n = str.length();
+		
+		for(int i = 0 ; i< n ; i++) {
+			ch = str.charAt(i);
+			rstr = ch + rstr;
+		}
+		return rstr;
+	}
+}
